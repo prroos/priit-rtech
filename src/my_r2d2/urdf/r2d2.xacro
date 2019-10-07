@@ -265,13 +265,13 @@
   <xacro:lense material="black" baselen="0.038" name="lense_testing" mass="0.5"/>
 
   <link name="base_footprint">-
-
+    
   </link>
 
   <joint name="base_footprintToLink" type="fixed">
-    <parent link="base_link"/>
-    <child link="base_footprint"/>
-    <origin xyz="0 0 -${bodylen/2 + 0.1 + wheeldiam}"/>
+    <parent link="base_footprint"/>
+    <origin xyz="0 0 ${bodylen/2 + 0.1 + wheeldiam}"/>
+    <child link="base_link"/>
   </joint> 
   
 </robot>

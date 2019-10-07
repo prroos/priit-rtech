@@ -411,12 +411,12 @@
     <child link="lense_testing"/>
   </joint>
   <link name="base_footprint">-
-
+    
   </link>
   <joint name="base_footprintToLink" type="fixed">
-    <parent link="base_link"/>
-    <child link="base_footprint"/>
-    <origin xyz="0 0 -0.47"/>
+    <parent link="base_footprint"/>
+    <origin xyz="0 0 0.47"/>
+    <child link="base_link"/>
   </joint>
 </robot>
 
