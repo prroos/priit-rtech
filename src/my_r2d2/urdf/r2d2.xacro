@@ -236,26 +236,42 @@
     <origin xyz="${.707*width+0.04} 0 ${.707*width}"/>
   </joint>
 
-  <link name="lense">
+  <xacro:macro name="lense" params="material baselen name mass">
+
+  <link name="${name}">
     <visual>
       <geometry>
-        <sphere radius="0.038"/>
+        <sphere radius="${baselen}"/>
       </geometry>
-      <material name="black"/>
+      <material name="${material}"/>
       <origin xyz="-0.015 0 0"/>
     </visual>
     <collision>
       <geometry>
-        <sphere radius="0.038"/>
+        <sphere radius="${baselen}"/>
       </geometry>
       <origin xyz="-0.015 0 0"/>
     </collision>
-    <xacro:default_inertial mass="0.5"/>
+    <xacro:default_inertial mass="${mass}"/>
   </link>
 
   <joint name="tolense" type="fixed">
     <parent link="box"/>
-    <child link="lense"/>
+    <child link="${name}"/>
   </joint> 
 
+  </xacro:macro>
+
+  <xacro:lense material="black" baselen="0.038" name="lense_testing" mass="0.5"/>
+
+  <link name="base_footprint">-
+
+  </link>
+
+  <joint name="base_footprintToLink" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+    <origin xyz="0 0 -${bodylen/2 + 0.1 + wheeldiam}"/>
+  </joint> 
+  
 </robot>
