@@ -387,7 +387,7 @@
     <child link="box"/>
     <origin xyz="0.1814 0 0.1414"/>
   </joint>
-  <link name="lense_testing">
+  <link name="lense">
     <visual>
       <geometry>
         <sphere radius="0.038"/>
@@ -408,7 +408,7 @@
   </link>
   <joint name="tolense" type="fixed">
     <parent link="box"/>
-    <child link="lense_testing"/>
+    <child link="lense"/>
   </joint>
   <link name="base_footprint">-
     

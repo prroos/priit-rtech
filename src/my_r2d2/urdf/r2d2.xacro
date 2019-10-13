@@ -262,16 +262,23 @@
 
   </xacro:macro>
 
-  <xacro:lense material="black" baselen="0.038" name="lense_testing" mass="0.5"/>
+  <xacro:lense material="black" baselen="0.038" name="lense" mass="0.5"/>
 
   <link name="base_footprint">-
-    
   </link>
 
   <joint name="base_footprintToLink" type="fixed">
     <parent link="base_footprint"/>
     <origin xyz="0 0 ${bodylen/2 + 0.1 + wheeldiam}"/>
     <child link="base_link"/>
+  </joint> 
+
+  <link name="eye">
+  </link>
+  <joint name="eyeToLense" type="fixed">
+    <parent link="lense"/>
+    <origin xyz="0.1 0 0" rpy="-${pi/2} ${pi/2*4} -${pi/2}"/>
+    <child link="eye"/>
   </joint> 
   
 </robot>
